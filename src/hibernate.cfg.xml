@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--  <hibernate-configuration xmlns="http://www.hibernate.org/xsd/hibernate-configuration"
+        xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-configuration hibernate-configuration-4.0.xsd"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> -->
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+ <session-factory>
+ 	
+    <!-- Database connection settings -->
+    <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+    <property name="connection.url">jdbc:oracle:thin:@//192.168.8.105:1521/orcl</property>
+    <property name="connection.username">scott</property>
+     <property name="connection.password">tiger</property>
+     <!-- SQL dialect -->
+    <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
+    <!-- Enable Hibernate's automatic session context management -->
+    <!--  <property name="current_session_context_class">thread</property>-->
+
+    <!-- Echo all executed SQL to stdout -->
+    <property name="show_sql">true</property>
+    
+      <!-- Enable Hibernate's automatic session context management -->
+    <property name="current_session_context_class">thread</property>
+
+	
+	<mapping class="com.iotek.basic.pojo.Student"/>
+	<mapping class="com.iotek.association.one2one.pojo.Person"/>
+	<mapping class="com.iotek.association.one2one.pojo.Passport"/>
+	<mapping class="com.iotek.association.one2many.pojo.Order"/>
+	<mapping class="com.iotek.association.one2many.pojo.OrderLine"/>
+	<mapping class="com.iotek.association.many2many.pojo.Engineer"/>
+	<mapping class="com.iotek.association.many2many.pojo.Technology"/>
+
+ </session-factory>
+
+</hibernate-configuration>
